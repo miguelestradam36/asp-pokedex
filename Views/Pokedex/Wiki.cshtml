@@ -1,0 +1,146 @@
+﻿@{
+    ViewData["Title"] = "ASP & Pokemon Wiki";
+}
+@section MetaData {
+        <meta name="description" content="Learn about ASP & Entity programming while watching some funny pokemons.">
+        <meta name="keywords" content="Pokedex, Javascript Pokedex, Miguel Estrada Projects, Miguel Estrada, Wiki, ASP Wiki, Pokemon Wiki, Pokemon Application Wiki">
+        <meta property="og:url" content="https://pokedex-me.azurewebsites.net/wiki">
+        <meta property="og:description" content="Learn about ASP & Entity programming while watching some funny pokemons.">
+}
+@section Styles {
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+   <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="~/css/wiki.css"/>
+}
+@section Scripts {
+    <!-- Vendor JS Files -->
+  <script src="~/vendor/aos/aos.js"></script>
+  <script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="~/vendor/isotope-layout/isotope.pkgd.min.js" async></script>
+  <script src="~/js/main.js"></script>
+}
+@section Breadcrumb {
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>@ViewData["Title"]</h2>
+          <ol>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Wiki">@ViewData["Title"]</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+}
+@section HeroSection {
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>@ViewData["Title"]</h1>
+          <h2>Basic information</h2>
+          <div class="d-flex">
+            <a href="#services" class="btn-get-started scrollto">What is this?</a>
+            <a asp-area="Home" asp-controller="Home" asp-action="Pokedex" class="glightbox btn-watch-video"><i class="bi bi-nintendo-switch"></i><span>Let's go to the Pokedex</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="/img/sceptile.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+}
+<!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
+            <div class="icon flex-shrink-0"><i class="bi bi-pie-chart"></i></div>
+            <div>
+              <h4 class="title">A bit of everything wiki</h4>
+              <p class="description">Learn from programming to pokemon, from entity frameworks to legendary pokemons and from ASP to games.</p>
+              <a href="#blog" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="bi bi-cloud"></i></div>
+            <div>
+              <h4 class="title">Built on the cloud</h4>
+              <p class="description">Learn to deploy complex applications online</p>
+              <a href="#blog" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="bi bi-file-earmark-text-fill"></i></div>
+            <div>
+              <h4 class="title">About this architecture</h4>
+              <p class="description">Lets have a look at some of the things Microsoft has to offer in this case.</p>
+              <a href="#blog" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+    <!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="image">
+                    <img src="img/pokemon-5.gif" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
+                    <h3>Different Pokemon games launches accros the years</h3>
+                    <p class="fst-italic">
+                        Lets have a look at some of them in the <a asp-area="Home" asp-controller="Home" asp-action="Legendaries">Legendary Pokemons</a> page
+                    </p>
+                    <ul>
+                        <li><i class="bi bi-pin-map"></i> Each game belongs to a generation.</li>
+                        <li><i class="bi bi-pin-map"></i> Each game has its own legendary pokemon.</li>
+                        <li><i class="bi bi-pin-map"></i> Each game is a whole different world.</li>
+                    </ul>
+                    <p>
+                        Different scenario, world and rythm, same mission.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Us Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Some special pokemons</h3>
+          <p>Meet some easy to remember pokemons!</p>
+          <a class="cta-btn"  asp-area="Home" asp-controller="Home" asp-action="Legendaries">Legendary Pokemons</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->

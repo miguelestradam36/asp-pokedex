@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Pokemon Center";
+}
+@section MetaData {
+        <meta name="description" content="Pokedex application written on Javascript, CSS and HTML on the fron-end and ASP.NET on the back-end. Developed by Miguel Estrada.">
+        <meta name="keywords" content="HTML, CSS, JavaScript, ASP.NET, Pokedex, Javascript Pokedex, Miguel Estrada Projects, Miguel Estrada">
+        <meta property="og:url" content="https://pokedex-me.azurewebsites.net/">
+        <meta property="og:description" content="Pokedex application written on Javascript, CSS and HTML on the fron-end and ASP.NET on the back-end. Developed by Miguel Estrada.">
+}
+@section Styles {
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+   <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="/css/index.css"/>
+}
+@section Scripts {
+    <!-- Vendor JS Files -->
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js" async></script>
+  <script src="/js/main.js"></script>
+}
+@section HeroSection {
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>@ViewData["Title"]</h1>
+          <h2>Get to know a bit more your favourite pokemon</h2>
+          <div class="d-flex">
+            <a href="#services" class="btn-get-started scrollto">What is this?</a>
+            <a asp-area="Home" asp-controller="Home" asp-action="Pokedex" class="glightbox btn-watch-video"><i class="bi bi-nintendo-switch"></i><span>Let's go to the Pokedex</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="/img/charmeleon_evolutions.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+}
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Pokemon Application | Home & Center </h2>
+        </div>
+
+        <div class="row">
+            <div class="scizor-background col-lg-6 order-2 order-lg-1">
+                <div class="icon-box mt-5 mt-lg-0">
+                    <i class="bx bx-coin-stack"></i>
+                    <h4>Information obtained from <a href="https://pokeapi.co/docs/v2" class="text-muted"> PokeApi </a></h4>
+                    <p>This Pokemon API has information regarding any item, move, pokemon and more! This, alongside the different games launched across the years.</p>
+                </div>
+                <div class="icon-box mt-5" data-aos-delay="100">
+                    <i class="bx bx-joystick-button"></i>
+                    <h4>Motivational Nintendo</h4>
+                    <p>"Make your wonderful dream a reality, it will become your truth. If anyone can, it’s you."</p>
+                    <p class="blockquote-footer">N from <cite title="Pokemon Black/White as source">Pokemon Black/White.</cite></p>
+                </div>
+                <div class="icon-box mt-5" data-aos-delay="200">
+                    <i class="bx bx-joystick-alt"></i>
+                    <h4>Play Pokemon on your Computer!</h4>
+                    <p>Download <span class="badge rounded-pill bg-dark"><a href="https://pokemmo.eu/?local=es">POKEMMO</a></span> into your computer and take your time to search for the ROMS</p>
+                </div>
+            </div>
+            <div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("img/services.jpg");'></div>
+        </div>
+    </div>
+</section><!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta-1" class="cta-1">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Knowledge Center</h3>
+          <p>Get to know more about what the <span>WIKI</span> of this project is about!</p>
+          <a class="cta-btn"  asp-area="Home" asp-controller="Home" asp-action="Wiki">Go to <span>WIKI</span></a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="cta" class="cta m-1">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>Get in contact with a trainer</h3>
+            <p>Meet one of the trainers in our team.</p>
+            <a class="cta-btn align-self-start" asp-area="Email" asp-controller="Email" asp-action="Contact">Contact</a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="img/pokemon-1.gif" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->

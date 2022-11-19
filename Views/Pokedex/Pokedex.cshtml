@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Pokedex Center";
+}
+@section MetaData {
+        <meta name="description" content="Feel free to search your favorite pokemon on this application.">
+        <meta name="keywords" content="Pokedex, Javascript Pokedex, Miguel Estrada Projects, Miguel Estrada, Pokedex Application, ASP Pokedex">
+        <meta property="og:url" content="https://pokedex-me.azurewebsites.net/pokedex">
+        <meta property="og:description" content="Feel free to search your favorite pokemon on this application.">
+}
+@section Styles {
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="~/css/pokedex.css"/>
+}
+@section Scripts {
+  <script src="vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="vendor/isotope-layout/isotope.pkgd.min.js" async></script>
+  <script src="js/main.js"></script>
+}
+@section Breadcrumb {
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>@ViewData["Title"]</h2>
+          <ol>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Pokedex">@ViewData["Title"]</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+}
+@section HeroSection {
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>@ViewData["Title"]</h1>
+          <div class="d-flex">
+            <a href="#portfolio" class="btn-get-started scrollto">Go to Pokedex</a>
+            <a asp-area="Home" asp-controller="Home" asp-action="Index" class="glightbox btn-watch-video"><i class="bi bi-nintendo-switch"></i><span>Return to Home Page</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="/img/rayquaza.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+}
+<section id="portfolio" class="portfolio">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Pokedex</h2>
+            <h4>Filter your pokemons by<mark> Name</mark></h4>
+            <p>Click your favourite Pokemon and let's get to know some things about him.</p>
+        </div>
+
+        <div class="container mb-3">
+            <div class="form-group">
+                <form asp-controller="Pokedex" asp-action="Pokedex">
+                    <div class="p-1">
+                        <div class="form-group p-1">
+                            <label class="form-label" for="SearchString">Pokemon Name: </label>
+                            <input type="text" class="form-control" name="SearchString" />
+                        </div>
+                        <div class="form-group mb-3 p-1">
+                            <input class="btn btn-primary btn-block mb-4" type="submit" value="Filter" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row p-1">
+            @{
+                if (ViewBag.Filter != null)
+                {
+                    <div class="alert alert-info">@ViewBag.Filter</div>
+                }
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="container p-1">
+                    @{
+                        if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger">@ViewBag.Error</div>
+                        }
+                        else
+                        {
+                            <table class="p-1" align="center">
+                            <thead>
+                                <tr>
+                                    <th>Pokemon</th>
+                                    <th>Types</th>
+                                    <th>Go to Pokemon</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (PokemonModel item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <table width="100%">
+                                                <tr>
+                                                    <td><h4 class="text-muted">@item.name</h4></td>
+                                                    <td><img src="@item.sprites.front_default" class="img-fluid" alt="@item.name"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            @foreach (var type_ in item.types)
+                                            {
+                                                <a class="btn btn-@type_.type.name">@type_.type.name</a>
+                                            }
+                                        </td>
+                                        <td>@Html.ActionLink("Pokemon Details", "Pokemon", "Pokedex", new { id = item.id })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            </table>
+                        }
+                    }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3><em>Find</em>about your favorite pokemon</h3>
+            <p>Find detailed information about your favorite pokemon with this application</p>
+            <a class="cta-btn align-self-start" href="#pokedex" >Pokedex</a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="img/lumia.gif" alt="Lumia from Pokemon" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->

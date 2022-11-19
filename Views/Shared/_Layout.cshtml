@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Poke Wiki</title>
+        <meta name="title" content='@ViewData["Title"]'>
+        <meta name="author" content="Miguel Estrada">
+        <meta property="og:site_name" content="Practice - Pokemon Application">
+        <meta name="twitter:image" content="/img/logo.png">
+        <meta property="og:image" content="/img/logo.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image:alt" content="Pokeball as logo">
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content='ASP Pokedex Application | @ViewData["Title"]'>
+        @RenderSection("MetaData", required: true)
+        @RenderSection("Styles", required: true)
+        <link href="~/img/favicon.png" rel="icon">
+        <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true"  />
+        <link rel="stylesheet" href="~/css/main.css" asp-append-version="true"  />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Pokedex" asp-action="Index">Pokemon &nbsp; <small class="text-info">Catch 'em all &nbsp;</small></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Pokedex" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Pokedex" asp-action="About">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Pokedex" asp-action="Pokedex">Pokedex</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Pokedex" asp-action="Wiki">Wiki</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Pokedex" asp-action="Contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Pokedex" asp-action="Legendaries">Legendaries</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container">
+        <partial name="_CookieConsentPartial" />
+        @RenderSection("HeroSection", required: true)
+            <main role="main" id="main" class="pb-1">
+                @RenderSection("Breadcrumb", required: false)
+                @RenderBody()
+            </main>
+        </div>
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+
+        <div class="footer-top">
+
+          <div class="container">
+
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <a href="#header" class="scrollto footer-logo"><img src="~/img/hero-logo.png" alt=""></a>
+                <h3>Pokemon Application</h3>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/miguelestradam36" class="github"><i class="bx bxl-github"></i></a>
+              <a href="https://www.linkedin.com/company/andean-dev-solutions/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://www.facebook.com/crandeandevsol" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/crandeandevsol/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container footer-bottom clearfix">
+          <div class="copyright">
+            <div class="container m-1">
+                    Inspect this project source code at its <a href="https://github.com/miguelestradam36/pokedex-asp-js" target="_blank">Github Repository: <i class="bx bxl-github"></i></a>
+            </div>
+            <div class="container m-1">
+                &copy; 2022 - Pokedex Application - <a asp-area="" asp-controller="Pokedex" asp-action="Privacy">Privacy</a>
+            </div>
+            <div class="container m-1">
+                @DateTime.Now
+            </div>
+          </div>
+        </div>
+      </footer><!-- End Footer -->
+        <script src="/lib/jquery/dist/jquery.min.js" async></script>
+        <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js" async></script>
+        @RenderSection("Scripts", required: true)
+    </body>
+</html>

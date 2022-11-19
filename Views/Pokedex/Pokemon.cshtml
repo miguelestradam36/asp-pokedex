@@ -1,0 +1,199 @@
+﻿@{
+    ViewData["Title"] = "Pokemon Application";
+}
+@model ASP_Pokemon.Models.PokemonModel
+@section MetaData {
+        <meta name="description" content="This is some basic information about your favorite pokemon.">
+        <meta name="keywords" content="Pokedex, Javascript Pokedex, Miguel Estrada Projects, Miguel Estrada, Pokemon, Pokemon details, Pokemon Overview">
+        <meta property="og:description" content="This is some basic information about your favorite pokemon.">
+}
+@section Styles {
+    <link href="vendor/aos/aos.css" rel="stylesheet">
+    <link href="css/pokemon.css" rel="stylesheet">
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> 
+}
+@section HeroSection {
+    @{
+        if (ViewBag.Error != null)
+        {
+            <!-- ======= Hero Section ======= -->
+            <section id="hero" class="d-flex align-items-center">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                            <h1>@ViewData["Title"]</h1>
+                            <div class="d-flex">
+                                <a class="btn-get-started scrollto"> <i class="bi bi-nintendo-switch"></i> <span> Pokemon Information</span></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                            <img src="img/pokemon.gif" class="img-fluid animated" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- End Hero -->
+        }
+        else
+        {
+            <!-- ======= Hero Section ======= -->
+            <section id="hero" class="d-flex align-items-center">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                            <h1>@Model.name</h1>
+                            <div class="d-flex">
+                                <a class="btn-get-started scrollto"> <i class="bi bi-nintendo-switch"></i> <span> Pokemon Information</span></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                            <img src="@Model.sprites.front_shiny" class="img-fluid animated" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- End Hero -->
+        }
+    }
+}
+@section Scripts {
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js" async></script>
+    <script src="/js/main.js"></script>
+}   
+@section Breadcrumb {
+    @{
+        if (ViewBag.Error != null)
+        {
+            <!-- ======= Breadcrumbs ======= -->
+            <section id="breadcrumbs" class="breadcrumbs">
+                <div class="container">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2>@ViewData["Title"]</h2>
+                        <ol>
+                            <li><a asp-controller="Pokedex" asp-action="Index">Home</a></li>
+                            <li><a asp-controller="Pokedex" asp-action="Pokemon">Pokemon</a></li>
+                        </ol>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- End Breadcrumbs -->
+        }
+        else
+        {
+            <!-- ======= Breadcrumbs ======= -->
+            <section id="breadcrumbs" class="breadcrumbs">
+                <div class="container">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2>@ViewData["Title"]</h2>
+                        <ol>
+                            <li><a asp-controller="Pokedex" asp-action="Pokedex">Pokedex</a></li>
+                            <li><a>@Model.name</a></li>
+                        </ol>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- End Breadcrumbs -->
+        }
+    }
+}
+@{
+    if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+    else
+    {
+        <!-- ======= Portfolio Details Section ======= -->
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-8">
+                        <div class="portfolio-details-slider swiper">
+                            <div class="swiper-wrapper align-items-center">
+                                <div class="swiper-slide">
+                                    <img src="@Model.sprites.front_default" alt="@Model.name Pokemon Image">
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="@Model.sprites.back_default" alt="@Model.name Pokemon Image">
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="@Model.sprites.front_shiny" alt="@Model.name Pokemon Image">
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="@Model.sprites.back_shiny" alt="@Model.name Pokemon Image">
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="portfolio-info">
+                            <h3>(@Model.id) @Model.name</h3>
+                            <ul>
+                                <li><strong>Base Experience</strong>: @Model.base_experience</li>
+                                <li><strong>Weight</strong>: @Model.weight</li>
+                                <li><strong>Height</strong>: @Model.height</li>
+                                <li><strong>Order</strong>: @Model.order</li>
+                                @foreach (var type_ in Model.types)
+                                {
+                                    <a class="btn btn-@type_.type.name">@type_.type.name</a>
+                                }
+                            </ul>
+                        </div>
+                        <div class="portfolio-description">
+                            <div class="p-1">
+                                <h4 class="text-dark">Abilities</h4>
+                                @foreach (var ability_ in Model.abilities)
+                                {
+                                    <div class="row">
+                                        <p class="text-muted">
+                                            <strong>Ability</strong>:@ability_.ability.name
+                                        </p>
+                                    </div>
+                                }
+                                <h4 class="text-dark">Stats</h4>
+                                @foreach (var stat_ in Model.stats)
+                                {
+                                    <div class="row">
+                                        <p class="text-muted">
+                                            <strong>@stat_.stat.name</strong>: @stat_.base_stat , effort: (@stat_.effort)
+                                        </p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- End Portfolio Details Section -->
+    }
+}

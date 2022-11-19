@@ -1,0 +1,172 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ASP_Pokemon.Models.EmailModel
+@{
+    ViewData["Title"] = "Contact Center";
+    Layout = "_Layout";
+    ViewData["Email"] = "miguelestradam36@gmail.com";
+}
+@section MetaData {
+        <meta name="description" content="Feel free to contact the developer to get a website even better than this one.">
+        <meta name="keywords" content="Pokedex, Javascript Pokedex, Miguel Estrada Projects, Miguel Estrada, Pokemon Contact Center, Pokedex Contact, Application Contact Center, Contact">
+        <meta property="og:url" content="https://pokedex-me.azurewebsites.net/contact">
+        <meta property="og:description" content="Feel free to contact the developer to get a website even better than this one.">
+}
+@section Styles {
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/contact.css"/>
+   <link href="vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+}
+@section Scripts {
+    <!-- No JS Files -->
+}
+@section Breadcrumb {
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>@ViewData["Title"]</h2>
+          <ol>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="Email" asp-controller="Email" asp-action="Contact">@ViewData["Title"]</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+}
+@section HeroSection {
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>@ViewData["Title"]</h1>
+          <div class="d-flex">
+            <a href="#contact" class="btn-get-started scrollto"> <i class="bi bi-nintendo-switch"></i> <span> Contact somebody</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="img/pokemon.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact section-bg">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Contact | Andean Dev</h2>
+            <p><strong>Azure</strong> | Let's design your new site from scratch.</p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="info d-flex flex-column justify-content-center">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>Cartago, Oriental<br>Costa Rica</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>@ViewData["Email"]</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Why ?</h4>
+                        <p>Have you ever heard about monthly costs for websites ?<br/>We can help you reduce that.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+
+                <div class="row container">
+                    <div>
+
+                        @{
+                            if (ViewBag.Exception != null && ViewBag.Exception != "Email was sent succesfully.")
+                            {
+                                <div class="alert alert-danger">@ViewBag.Exception</div>
+                            }
+                            if (ViewBag.Exception == "Email was sent succesfully.")
+                            {
+                                <div class="alert alert-success">Email has been sent succesfully.</div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row container">
+                    <div class="has-error col-md-12 floating">
+                        <form method="post">
+                            <div class="row">
+                                <div class="form-group col-md-10">
+                                    <label asp-for="Name">Name:</label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-muted"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10">
+                                    <label asp-for="Email">Email:</label>
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-muted"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10">
+                                    <label asp-for="Subject">Subject:</label>
+                                    <input asp-for="Subject" class="form-control" />
+                                    <span asp-validation-for="Subject" class="text-muted"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-10">
+                                    <label asp-for="Message">Message:</label>
+                                    <textarea rows="8" cols="30" asp-for="Message" class="form-control"></textarea>
+                                    <span asp-validation-for="Message" class="text-muted"></span>
+                                </div>
+                            </div>
+                            <div class="container m-2">
+                            <input type="submit" class="btn btn-success" id="button" value="Send Message" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Let's see the wiki</h3>
+          <p>Get to know some basic possibilities!</p>
+          <a class="cta-btn"  asp-area="" asp-controller="Home" asp-action="Wiki">Pokemon Wiki</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->

@@ -1,0 +1,267 @@
+﻿@{
+    ViewData["Title"] = "About the project";
+}
+@model ASP_Pokemon.Models.SuscribeModel
+@section MetaData {
+        <meta name="description" content="Learn some curious facts about this project and how it was made">
+        <meta name="keywords" content="Pokedex, Javascript Pokedex, Miguel Estrada Projects, Miguel Estrada, About, about the project, Application About page">
+        <meta property="og:url" content="https://pokedex-me.azurewebsites.net/about">
+        <meta property="og:description" content="Learn some curious facts about this project and how it was made">
+}
+@section Styles {
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/about.css"/>
+}
+@section Scripts {
+    <!-- No JS files -->
+  <script src="~/vendor/aos/aos.js"></script>
+  <script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="~/vendor/isotope-layout/isotope.pkgd.min.js" async></script>
+}
+@section Breadcrumb {
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>@ViewData["Title"]</h2>
+          <ol>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="Email" asp-controller="Email" asp-action="About">@ViewData["Title"]</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+}
+@section HeroSection {
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Elegant and creative solutions</h1>
+          <h2>@ViewData["Title"]</h2>
+          <div class="d-flex">
+            <a href="#why-us" class="btn-get-started scrollto">What is Pokemon ?</a>
+            <a asp-area="Home" asp-controller="Home" asp-action="Pokedex" class="glightbox btn-watch-video"><i class="bi bi-nintendo-switch"></i><span>Let's go to the Pokedex</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="/img/pikachu.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+}
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta-1" class="cta-1">
+      <div class="container">
+
+        <div class="text-center">
+          <h3>Knowledge Center</h3>
+          <p>Get to know more about what the <span>WIKI</span> of this project is about!</p>
+          <a class="cta-btn"  asp-area="Home" asp-controller="Home" asp-action="Wiki">Go to <span>WIKI</span></a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-stretch">
+
+                <div class="content">
+                    <h3>About the <strong>Pokedex</strong></h3>
+                    <p>
+                        Learn some funny facts about the pokedex application we have presented to you.
+                    </p>
+                </div>
+
+                <div class="accordion-list">
+                    <ul>
+                        <li data-aos-delay="100">
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> What was special about pokemon? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                            <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                                <p>
+                                    Pokemon was a game launched by NINTENDO, which consisted on the capture and training of <span>pokemons</span> upon an open world, over which each had its own strenghts and rareness
+                                </p>
+                                <p>
+                                    To get know a bit better about the project's nature <a asp-area="" asp-controller="Legendaries" asp-action="Wiki">What were the legendary pokemons ?</a>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 order-1 order-lg-2">
+                <img class='img-fluid col-10' src='img/about.gif' />
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Why Us Section -->
+
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-stretch">
+                <img class='img-fluid col-10' src='img/giratina.gif' />
+            </div>
+
+            <div class="col-lg-5 order-1 order-lg-2">
+                <div class="content">
+                    <h3>Project <strong>Architecture</strong> Overview</h3>
+                    <p>
+                        Learn a bit about how this project was built
+                    </p>
+                </div>
+
+                <div class="accordion-list">
+                    <ul>
+                        <li data-aos-delay="100">
+                            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> How does this project works? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                            <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                                <p>
+                                    This project works under an <span>ASP.NET 6.0 MVC</span> architecture, the usage of the databases through sqlite and the entity frameworks is also done in this project.
+                                </p>
+                                <p>
+                                    For more information, please redirect to the  <a asp-area="" asp-controller="Home" asp-action="Wiki">Pokemon Wiki</a>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row p-1">
+                <div class="container p-1">
+                    <div class="row">
+                        @{
+                            if (ViewBag.Exception != null && ViewBag.Exception != "Email was sent succesfully.")
+                            {
+                                <div class="alert alert-danger">@ViewBag.Exception</div>
+                            }
+                            if (ViewBag.Exception == "Email was sent succesfully.")
+                            {
+                                <div class="alert alert-success">Email has been sent succesfully.</div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="has-error p-1 col-md-6 floating">
+                    <form method="post">
+                        <div class="row">
+                            <div class="form-group col-md-10">
+                                <label asp-for="Email">Suscribe to our channel:</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-muted"></span>
+                            </div>
+                        </div>
+                        <div class="container m-1">
+                            <div class="row">
+                                <div class="form-group col-md-10">
+                                    <input type="submit" class="btn btn-success" id="button" value="Send Message" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 p-1 floating">
+                    <img src="img/espeon.gif" alt="Espeon Pokemon" class="img-fluid"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Why Us Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Trainers</h2>
+          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="/img/pokemon-trainer.png" alt="">
+              <h4>Miguel Estrada</h4>
+              <span>Trainer</span>
+              <p>
+                Developer of the following project for practice purposes. ASP.NET 6.0 MVC architecture used for the development of this project.
+              </p>
+              <div class="social">
+                <a href="https://github.com/miguelestradam36"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/miguel-e-0496b7192/"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="/img/pokemon-gym.png" alt="">
+              <h4>Andean Dev</h4>
+              <span>Group</span>
+              <p>
+                Group of trainers used to battle projects like this one.
+              </p>
+              <div class="social">
+                <a href="https://github.com/miguelestradam36"><i class="bi bi-github"></i></a>
+                <a href="https://www.facebook.com/crandeandevsol"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/crandeandevsol/"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/andean-dev-solutions"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>Get to know the <em>Pokedex</em> Application</h3>
+            <p>Upon an <strong>ASP MVC 6</strong> architecture and the usage of <strong>Razor</strong> among other functionalities like <strong>Javascript</strong></p>
+            <a class="cta-btn align-self-start" asp-area="Home" asp-controller="Home" asp-action="Pokedex">Pokedex</a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="img/pokemon-4.gif" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->
+.

@@ -1,0 +1,11 @@
+﻿Properties/
+Database/
+Dependencies/
+bin/
+obj/
+Controllers/EmailController.cs
+.vs/
+.editorconfig
+*.json
+.json
+wwwroot/

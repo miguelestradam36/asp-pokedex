@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policies";
+}
+@section MetaData {
+        <meta name="description" content="Learn about our privacy policy.">
+        <meta name="keywords" content="Pokedex, Miguel Estrada Projects, Miguel Estrada, Privacy, privacy policy, pokemon application privacy">
+        <meta property="og:url" content="https://pokedex-me.azurewebsites.net/privacy">
+        <meta property="og:description" content="Learn about our privacy policy.">
+}
+@section Styles {
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="~/css/privacy.css"/>
+}
+@section Scripts {
+}
+@section HeroSection {
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Elegant and creative solutions</h1>
+          <h2>@ViewData["Title"]</h2>
+          <div class="d-flex">
+            <a href="#privacy" class="btn-get-started scrollto">About privacy</a>
+            <a asp-area="Home" asp-controller="Home" asp-action="Pokedex" class="glightbox btn-watch-video"><i class="bi bi-nintendo-switch"></i><span>Let's go to the Pokedex</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="/img/piplup.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+}
+@section Breadcrumb {
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>@ViewData["Title"]</h2>
+          <ol>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Privacy">@ViewData["Title"]</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+}
+<!-- ======= Privacy Section ======= -->
+<section id="privacy" class="privacy">
+    <div class="container">
+
+        <div class="section-title">
+            <h1>@ViewData["Title"]</h1>
+            <p>The following site, has been programmed with training purposes only.</p>
+            <p class="text-muted">Therefore, this project will not be used for commercial purposes of any source</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="image">
+                    <img src="img/pokemon-2.gif" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="content pt-4 pt-lg-0 pl-0 pl-lg-3 ">
+                    <h3>Privacy description</h3>
+                    <p>
+                        The security of your personal information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.
+                    </p>
+                    <p class="fst-italic">
+                        For any questions or concerns regarding the privacy policy, please Contact us to <a href="mailto:miguelestradam36@gmail.com"><mark>miguelestradam36@gmail.com</mark></a>.
+                    </p>
+                    <ul>
+                        <li><i class="bx bx-check-double"></i>We will not ask for any sensible information</li>
+                        <li><i class="bx bx-check-double"></i>This website has been programmed to avoid as possible 3rd party sources</li>
+                        <li><i class="bx bx-check-double"></i>No responsability policy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

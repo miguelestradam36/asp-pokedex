@@ -1,0 +1,265 @@
+﻿@{
+    ViewData["Title"] = "Legendary Pokemons";
+}
+@section MetaData {
+        <meta name="description" content="Pokedex Application | A quick overview of what legendary pokemons felt like back in the game.">
+        <meta name="keywords" content="Pokedex, Javascript Pokedex, Miguel Estrada Projects, Miguel Estrada, Legendary pokemons, Legendaries, Legendary Pokemon">
+        <meta property="og:url" content="https://pokedex-me.azurewebsites.net/legendary-pokemons">
+        <meta property="og:description" content="Pokedex Application | A quick overview of what legendary pokemons felt like back in the game.">
+}
+@section Styles {
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="~/css/legendary.css"/>
+}
+@section Scripts {
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js" async></script>
+}
+@section Breadcrumb {
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>@ViewData["Title"]</h2>
+          <ol>
+            <li><a asp-area="Home" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="Home " asp-controller="Home" asp-action="Legendaries">@ViewData["Title"]</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+}
+@section HeroSection {
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>@ViewData["Title"]</h1>
+          <h2>What were legendary pokemons in each game ?</h2>
+          <div class="d-flex">
+            <a href="#about" class="btn-get-started scrollto">What are legendary pokemons?</a>
+            <a asp-area="Home" asp-controller="Home" asp-action="Index" class="glightbox btn-watch-video"><i class="bi bi-nintendo-switch"></i><span>Return home</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="/img/meow.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+}
+
+    <!-- ======= On Focus Section ======= -->
+    <section id="onfocus" class="onfocus">
+      <div class="container-fluid p-0" data-aos="fade-up">
+
+        <div class="row g-0">
+          <div class="col-lg-6 video-play position-relative">
+            <a href="#features" class="glightbox play-btn"></a>
+          </div>
+          <div class="col-lg-6">
+            <div class="content d-flex flex-column justify-content-center h-100">
+              <h3>What are legendary pokemons ?</h3>
+              <p class="fst-italic">
+                Legendary Pokemons consist of a group of incredibly rare and very powerful Pokemon, generally featured prominently among the legends and myths of the Pokemon world.
+              </p>
+              <ul>
+                <li><i class="bi bi-award-fill"></i> Hard to capture or to defeat.</li>
+                <li><i class="bi bi-bank2"></i> Each has its temple</li>
+                <li><i class="bi bi-bar-chart-fill"></i> Higher statics among the other pokemons</li>
+              </ul>
+              <a href="#features" class="read-more align-self-start"><span>Let's have a glance at it</span><i class="bi bi-joystick"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End On Focus Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+
+        <ul class="nav nav-tabs row gy-4 d-flex">
+
+          <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+              <i class="bi bi-building color-cyan"></i>
+              <h4>How to prepare</h4>
+            </a>
+          </li><!-- End Tab 1 Nav -->
+
+          <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+              <i class="bi bi-bank color-indigo"></i>
+              <h4>Get supplies</h4>
+            </a>
+          </li><!-- End Tab 2 Nav -->
+
+          <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
+              <i class="bi bi-exclamation-triangle color-teal"></i>
+              <h4>Hard to defeat</h4>
+            </a>
+          </li><!-- End Tab 3 Nav -->
+
+          <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
+              <i class="bi bi-trophy color-red"></i>
+              <h4>End of the game</h4>
+            </a>
+          </li><!-- End Tab 4 Nav -->
+
+          <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
+              <i class="bi bi-nintendo-switch color-blue"></i>
+              <h4>Some games</h4>
+            </a>
+          </li><!-- End Tab 5 Nav -->
+
+        </ul>
+
+        <div class="tab-content">
+
+          <div class="tab-pane active show" id="tab-1">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+                <h3>A quick step by step overview</h3>
+                <p class="fst-italic">
+                  This may not be much but at least gives you a basic glance at what hunting a legendary pokemon looks like.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check-circle-fill"></i> Be near finishing the game, or at the end of it.</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Maximize as possible the level of your pokemons.</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Have enough supplies to do one single trip.</li>
+                </ul>
+                <p>
+                  In which games could this be done ?
+                </p>
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <img src="img/zekrom.gif" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End Tab Content 1 -->
+
+          <div class="tab-pane" id="tab-2">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1">
+                <h3>What or which supplies may I need ?</h3>
+                <p>
+                  Some of the recommended items would be:
+                </p>
+                <ul>
+                  <li><i class="bi bi-view-list"></i> Revival Potions.</li>
+                  <li><i class="bi bi-view-list"></i> HP Potions.</li>
+                  <li><i class="bi bi-view-list"></i> Repellent</li>
+                  <li><i class="bi bi-view-list"></i> Personalized Item per Pokemon</li>
+                </ul>
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center">
+                <img src="img/dialga.gif" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End Tab Content 2 -->
+
+          <div class="tab-pane" id="tab-3">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1">
+                <h3>Why are them hard to defeat ?</h3>
+                <p>
+                  Since they are legendary pokemons, their statics are a bit above the average pokemons on the game. Also, since you are going to find them at the end of the game, they will probably have a pretty respectable level.
+                </p>
+                <ul>
+                  <li><i class="bi bi-shield-exclamation"></i> Higher statics and rareness</li>
+                  <li><i class="bi bi-shield-exclamation"></i> Unique abilities</li>
+                  <li><i class="bi bi-shield-exclamation"></i> Hard to defeat or capture due to their strenght and supplies</li>
+                </ul>
+                <p class="fst-italic">
+                  If you are facing the final boss, their HP will seem eternal.
+                </p>
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center">
+                <img src="img/entei.gif" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End Tab Content 3 -->
+
+          <div class="tab-pane" id="tab-4">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1">
+                <h3>Either defeated or captured</h3>
+                <p>
+                  Legendary pokemons can be obtained as a gift after the completion of the game, or in some specific events, seasons or places during or after the game.
+                </p>
+                <ul>
+                  <li><i class="bi bi-bullseye"></i> Defeat the final boss and wake up with the legendary pokemon of the game</li>
+                  <li><i class="bi bi-bullseye"></i> Some people say, that if you enter certain cave you may find a pretty rare pokemon</li>
+                  <li><i class="bi bi-bullseye"></i> Gain certain abilities and be able to enter the most strange places in the game</li>
+                </ul>
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center">
+                <img src="img/lumia.gif" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End Tab Content 4 -->
+
+          <div class="tab-pane" id="tab-5">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1">
+                <h3>Nintendo games</h3>
+                <p>
+                  Where can I find some examples of the game described in this website ?
+                </p>
+                <p class="fst-italic">
+                  Among the inmense list of pokemon existing pokemon games up to this date, I am going to list some of the games I do know:
+                </p>
+                <ul>
+                  <li><i class="bi bi-nintendo-switch"></i> Pokemon Diamond and Pearl</li>
+                  <li><i class="bi bi-nintendo-switch"></i> Pokémon Black and White</li>
+                  <li><i class="bi bi-nintendo-switch"></i> Pokémon Platinum</li>
+                </ul>
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center">
+                <img src="img/arceus.gif" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End Tab Content 5 -->
+
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>Get in contact with a trainer</h3>
+            <p>Meet one of the trainers in our team.</p>
+            <a class="cta-btn align-self-start" asp-area="Email" asp-controller="Email" asp-action="Contact">Contact</a>
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="img/espeon.gif" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->
