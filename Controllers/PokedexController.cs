@@ -23,15 +23,32 @@ namespace ASP_Pokemon.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<CommentModel> comments = new List<CommentModel>();
-            JSONReadWrite readWrite = new JSONReadWrite();
-            comments = JsonConvert.DeserializeObject<List<CommentModel>>(readWrite.Read("comments.json", "data"));
-            return View(comments);
+            try
+            {
+                List<CommentModel> comments = new List<CommentModel>();
+                JSONReadWrite readWrite = new JSONReadWrite();
+                comments = JsonConvert.DeserializeObject<List<CommentModel>>(readWrite.Read("comments.json", "data"));
+                ViewBag.Message = "Comments uploaded";
+                if (comments != null)
+                {
+                    return View(comments);
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (Exception error)
+            {
+                ViewBag.Message = $"ERROR: {error}";
+                return View();
+            }
         }
         [Route("")]
         [Route("home")]
         [RequireHttps]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(CommentModel Comment)
         {
             try

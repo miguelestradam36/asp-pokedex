@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Pokemon Center";
 }
 @section MetaData {
@@ -91,6 +92,66 @@
 
       </div>
     </section><!-- End Cta Section -->
+
+
+    <section class="container p-1" align="center">
+        <div class="row p-1">
+            <div class="container">
+                <h3 class="fw-bold text-muted">Comments Section</h3>
+            </div>
+        </div>
+        <div class="row p-1">
+            @if (Model != null){
+                <div class="row p-1">
+                    <table>
+                        @foreach (CommentModel item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <p>@item.Email</p>
+                                </td>
+                                <td>
+                                    <p>@item.Subject</p>
+                                </td>
+                                <td>
+                                    <p>@item.Message</p>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            }
+            else {
+                <div class="container">
+                    <div class="row p-1">
+                        <span class="alert alert-info">@ViewBag.Message</span>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="container p-1">
+            <div class="row" align="left">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="Email1">Email address</label>
+                        <input type="email" class="form-control" name="Email" id="Email1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">Your email will be listed on this site.</small>
+                    </div>
+                    <div class="form-group">
+                    <label for="Subject">Comment Subject</label>
+                        <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Comment subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="Message">Content</label>
+                        <input type="text" class="form-control" name="Message" id="Message" placeholder="Write your message">
+                    </div>
+                    <div class="form-group p-1">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 
 
     <!-- ======= Call To Action Section ======= -->
