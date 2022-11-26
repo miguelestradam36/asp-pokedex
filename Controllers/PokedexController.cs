@@ -1,22 +1,11 @@
 ﻿using ASP_Pokemon.Models;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
-using System;
+using ASP_Pokemon.Services;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using MimeKit.Text;
 using MimeKit;
-using Microsoft.Extensions.Options;
 using MailKit.Net.Smtp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Hosting.Internal;
-using Microsoft.DotNet.PlatformAbstractions;
-using Microsoft.Extensions.Hosting;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.EntityFrameworkCore;
 
 namespace ASP_Pokemon.Controllers
 {
@@ -266,28 +255,6 @@ namespace ASP_Pokemon.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        public class JSONReadWrite
-        {
-            public JSONReadWrite() { }
-
-            public string Read(string fileName, string location)
-            {
-                string root = "wwwroot";
-                var path = Path.Combine(
-                    Directory.GetCurrentDirectory(),
-                    root,
-                    location,
-                    fileName);
-
-                string jsonResult;
-
-                using (StreamReader streamReader = new StreamReader(path))
-                {
-                    jsonResult = streamReader.ReadToEnd();
-                }
-                return jsonResult;
-            }
         }
     }
 }

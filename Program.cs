@@ -1,5 +1,7 @@
+using ASP_Pokemon;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore.Sqlite;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddResponseCompression(options =>
@@ -13,12 +15,16 @@ builder.Services.AddSession();
 builder.Services.AddMvc();
 builder.Services.AddRazorPages();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddEntityFrameworkSqlite().AddDbContext<DatabaseContext>();
 builder.Services.Configure<CookiePolicyOptions>(options => {
     options.CheckConsentNeeded = context => true;
     options.MinimumSameSitePolicy = SameSiteMode.Strict;
 });
 var app = builder.Build();
-
+using (var client = new DatabaseContext())
+{
+    client.Database.EnsureCreated();
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
