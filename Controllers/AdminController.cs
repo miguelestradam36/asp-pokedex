@@ -5,8 +5,17 @@ namespace ASP_Pokemon.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: AdminController
+        [Route("admin/")]
+        [RequireHttps]
+        [HttpGet]
         public IActionResult Index()
+        {
+            return View();
+        }
+        [Route("admin/login")]
+        [RequireHttps]
+        [HttpGet]
+        public IActionResult Login()
         {
             return View();
         }
