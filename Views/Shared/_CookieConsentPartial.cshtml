@@ -11,16 +11,19 @@
     <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
         <div class="row">
             <div class="col-md-8">
+                This site uses server sided cookies and cache for optimization purposes.
             </div>
             <div class="col-md-4">
-                <div class="container p-1">
+                <div class="row container p-1">
                     <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
                         <span aria-hidden="true">Accept</span>
                     </button>
                 </div>
+                <div class="row container p-1">
+                    <a asp-page="/Privacy">Learn More</a>.
+                </div>
             </div>
         </div>
-        Use this space to summarize your privacy and cookie use policy. <a asp-page="/Privacy">Learn More</a>.
     </div>
     <script>
         (function () {
