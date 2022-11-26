@@ -20,10 +20,32 @@ namespace ASP_Pokemon.Controllers
         [Route("")]
         [Route("home")]
         [RequireHttps]
-        [ResponseCache(Duration = 10, Location = ResponseCacheLocation.Any, NoStore = false)]
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            List<CommentModel> comments = new List<CommentModel>();
+            JSONReadWrite readWrite = new JSONReadWrite();
+            comments = JsonConvert.DeserializeObject<List<CommentModel>>(readWrite.Read("comments.json", "data"));
+            return View(comments);
+        }
+        [Route("")]
+        [Route("home")]
+        [RequireHttps]
+        [HttpPost]
+        public IActionResult Index(CommentModel Comment)
+        {
+            List<CommentModel> comments = new List<CommentModel>();
+            JSONReadWrite readWrite = new JSONReadWrite();
+            comments = JsonConvert.DeserializeObject<List<CommentModel>>(readWrite.Read("people.json", "data"));
+            if (ModelState.IsValid)
+            {
+                comments.Add(Comment);
+            }
+
+            string jSONString = JsonConvert.SerializeObject(comments);
+            readWrite.Write("comments.json", "data", jSONString);
+
+            return View(comments);
         }
         [Route("pokemon/")]
         [HttpGet]
@@ -75,7 +97,6 @@ namespace ASP_Pokemon.Controllers
         }
 
         [Route("pokedex/")]
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [HttpGet]
         [RequireHttps]
         public IActionResult Pokedex()
@@ -130,6 +151,7 @@ namespace ASP_Pokemon.Controllers
         }
         [Route("about")]
         [RequireHttps]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [HttpGet]
         public IActionResult About()
         {
@@ -187,6 +209,7 @@ namespace ASP_Pokemon.Controllers
         }
         [Route("contact")]
         [RequireHttps]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [HttpGet]
         public IActionResult Contact()
         {
@@ -244,6 +267,7 @@ namespace ASP_Pokemon.Controllers
             return View();
         }
         [Route("wiki/")]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [RequireHttps]
         public IActionResult Wiki()
         {

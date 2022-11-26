@@ -21,5 +21,19 @@
             }
             return jsonResult;
         }
+        public void Write(string fileName, string location, string jSONString)
+        {
+            string root = "wwwroot";
+            var path = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                root,
+                location,
+                fileName);
+
+            using (var streamWriter = File.CreateText(path))
+            {
+                streamWriter.Write(jSONString);
+            }
+        }
     }
 }
