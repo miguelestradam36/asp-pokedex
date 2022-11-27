@@ -6,6 +6,10 @@ Pokedex designed in the :green_circle: **ASP.NET 6 framework** and hosted into *
 | ----------- | ----------- |
 | Miguel Estrada | Upload of the project for sharing purposes 	:white_check_mark: |
 
+## About 
+
+Check this project [Hosted on Azure](https://pokedex-me.azurewebsites.net/)
+
 ### To be developed :bricks:
 
 - [x] Razor pokedex support
