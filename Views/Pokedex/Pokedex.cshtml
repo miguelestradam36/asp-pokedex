@@ -72,6 +72,12 @@
                 <form asp-controller="Pokedex" asp-action="Pokedex">
                     <div class="p-1">
                         <div class="form-group p-1">
+                            <label class="form-label" for="PokemonType">Pokemon Type: </label>
+                            <select class="form-select" name="PokemonType" id="PokemonType">
+                                <option value="" selected>All</option>
+                            </select>
+                        </div>
+                        <div class="form-group p-1">
                             <label class="form-label" for="SearchString">Pokemon Name: </label>
                             <input type="text" class="form-control" name="SearchString" />
                         </div>

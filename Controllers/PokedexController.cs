@@ -146,7 +146,7 @@ namespace ASP_Pokemon.Controllers
         [HttpPost]
         [RequireHttps]
         [ValidateAntiForgeryToken]
-        public IActionResult Pokedex(string searchString)
+        public IActionResult Pokedex(string searchString, string? PokemonType)
         {
             List<PokemonModel> pokemons = new List<PokemonModel>();
             List<PokemonModel> filtered = new List<PokemonModel>();
@@ -158,7 +158,20 @@ namespace ASP_Pokemon.Controllers
                 {
                     if (pokemon.name.Contains(searchString))
                     {
-                        filtered.Add(pokemon);
+                        if (!string.IsNullOrEmpty(PokemonType))
+                        {
+                            foreach (var type in pokemon.types)
+                            {
+                                if (PokemonType == type.type.name)
+                                {
+                                    filtered.Add(pokemon);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            filtered.Add(pokemon);
+                        }
                     }
                 }
                 if (filtered.Count > 0)
