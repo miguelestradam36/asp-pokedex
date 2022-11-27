@@ -148,17 +148,50 @@ namespace ASP_Pokemon.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Pokedex(string searchString, string? PokemonType)
         {
-            List<PokemonModel> pokemons = new List<PokemonModel>();
-            List<PokemonModel> filtered = new List<PokemonModel>();
-            JSONReadWrite readWrite = new JSONReadWrite();
-            pokemons = JsonConvert.DeserializeObject<List<PokemonModel>>(readWrite.Read("pokeapi.json", "data"));
-            if (!String.IsNullOrEmpty(searchString))
+            try
             {
-                foreach (PokemonModel pokemon in pokemons)
+                List<PokemonModel> pokemons = new List<PokemonModel>();
+                List<PokemonModel> filtered = new List<PokemonModel>();
+                JSONReadWrite readWrite = new JSONReadWrite();
+                pokemons = JsonConvert.DeserializeObject<List<PokemonModel>>(readWrite.Read("pokeapi.json", "data"));
+                if (!String.IsNullOrEmpty(searchString))
                 {
-                    if (pokemon.name.Contains(searchString))
+                    foreach (PokemonModel pokemon in pokemons)
                     {
-                        if (!string.IsNullOrEmpty(PokemonType))
+                        if (pokemon.name.Contains(searchString))
+                        {
+                            if (!string.IsNullOrEmpty(PokemonType))
+                            {
+                                foreach (var type in pokemon.types)
+                                {
+                                    if (PokemonType == type.type.name)
+                                    {
+                                        filtered.Add(pokemon);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                filtered.Add(pokemon);
+                            }
+                        }
+                    }
+                    if (filtered.Count > 0)
+                    {
+                        ViewBag.Filter = "Search results";
+                        return View(filtered);
+                    }
+                    else
+                    {
+                        ViewBag.Filter = $"No pokemons containing: {searchString}";
+                        return View(pokemons);
+                    }
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(PokemonType))
+                    {
+                        foreach (PokemonModel pokemon in pokemons)
                         {
                             foreach (var type in pokemon.types)
                             {
@@ -168,26 +201,18 @@ namespace ASP_Pokemon.Controllers
                                 }
                             }
                         }
-                        else
-                        {
-                            filtered.Add(pokemon);
-                        }
+                        return View(filtered);
+                    }
+                    else
+                    {
+                        return View(pokemons);
                     }
                 }
-                if (filtered.Count > 0)
-                {
-                    ViewBag.Filter = "Search results";
-                    return View(filtered);
-                }
-                else
-                {
-                    ViewBag.Filter = $"No pokemons containing: {searchString}";
-                    return View(pokemons);
-                }
-            }
-            else
+            } catch (Exception error)
             {
-                return View(pokemons);
+                List<PokemonModel> null_list = new List<PokemonModel> ();
+                ViewBag.Filter = $"Error ocurred: {error}";
+                return View(null_list);
             }
         }
         [Route("about")]

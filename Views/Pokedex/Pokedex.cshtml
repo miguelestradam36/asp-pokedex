@@ -75,6 +75,24 @@
                             <label class="form-label" for="PokemonType">Pokemon Type: </label>
                             <select class="form-select" name="PokemonType" id="PokemonType">
                                 <option value="" selected>All</option>
+                                <option value="fire">Fire</option>
+                                <option value="grass">Grass</option>
+                                <option value="electric">Electric</option>
+                                <option value="poison">Poison</option>
+                                <option value="fighting">Fighting</option>
+                                <option value="water">Water</option>
+                                <option value="normal">Normal</option>
+                                <option value="flying">Flying</option>
+                                <option value="ground">Ground</option>
+                                <option value="rock">Rock</option>
+                                <option value="bug">Bug</option>
+                                <option value="ghost">Ghost</option>
+                                <option value="steel">Steel</option>
+                                <option value="psychic">Psychic</option>
+                                <option value="ice">Ice</option>
+                                <option value="dragon">Dragon</option>
+                                <option value="dark">Dark</option>
+                                <option value="fairy">Fairy</option>
                             </select>
                         </div>
                         <div class="form-group p-1">
@@ -118,26 +136,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach (PokemonModel item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            <table width="100%">
-                                                <tr>
-                                                    <td><h4 class="text-muted">@item.name</h4></td>
-                                                    <td><img src="@item.sprites.front_default" class="img-fluid" alt="@item.name"></td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td>
-                                            @foreach (var type_ in item.types)
-                                            {
-                                                <a class="btn btn-@type_.type.name">@type_.type.name</a>
-                                            }
-                                        </td>
-                                        <td>@Html.ActionLink("Pokemon Details", "Pokemon", "Pokedex", new { id = item.id })</td>
-                                    </tr>
-                                }
+                            @if (Model != null){
+                                @foreach (PokemonModel item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td><h4 class="text-muted">@item.name</h4></td>
+                                                        <td><img src="@item.sprites.front_default" class="img-fluid" alt="@item.name"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td>
+                                                @foreach (var type_ in item.types)
+                                                {
+                                                    <a class="btn btn-@type_.type.name">@type_.type.name</a>
+                                                }
+                                            </td>
+                                            <td>@Html.ActionLink("Pokemon Details", "Pokemon", "Pokedex", new { id = item.id })</td>
+                                        </tr>
+                                    }
+                            }
                             </tbody>
                             </table>
                         }
