@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Pokemon Center";
 }
 @section MetaData {
@@ -101,49 +100,55 @@
             </div>
         </div>
         <div class="row p-1">
+            @if (ViewBag.Message != null){
+                <div class="container">
+                    <div class="p-1">
+                        <span class="alert alert-info">@ViewBag.Message</span>
+                    </div>
+                </div>
+            }
             @if (Model != null){
                 <div class="row p-1">
-                    <table>
-                        @foreach (CommentModel item in Model)
-                        {
+                    <table class="table">
+                        <thead class="thead-dark">
                             <tr>
-                                <td>
-                                    <p>@item.Email</p>
-                                </td>
-                                <td>
-                                    <p>@item.Subject</p>
-                                </td>
-                                <td>
-                                    <p>@item.Message</p>
-                                </td>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
                             </tr>
-                        }
+                        </thead>
+                        <tbody>
+                            @foreach (CommentModel item in Model)
+                            {
+                                <tr>
+                                    <td><a href="mailto:@item.Email">@item.Email</a></td>
+                                    <td>@item.Subject</td>
+                                    <td>@item.Message</td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             }
             else {
-                <div class="container">
-                    <div class="row p-1">
-                        <span class="alert alert-info">@ViewBag.Message</span>
-                    </div>
-                </div>
             }
         </div>
         <div class="container p-1">
             <div class="row" align="left">
                 <form method="post">
                     <div class="form-group">
-                        <label for="Email1">Email address</label>
-                        <input type="email" class="form-control" name="Email" id="Email1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <label for="Email">Email address</label>
+                        <input name="Email" type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email" required/>
+                        <span validation-for="Email" class="text-muted"></span>
                         <small id="emailHelp" class="form-text text-muted">Your email will be listed on this site.</small>
                     </div>
                     <div class="form-group">
-                    <label for="Subject">Comment Subject</label>
-                        <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Comment subject">
+                        <label for="Subject">Comment Subject</label>
+                        <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Comment subject" required/>
                     </div>
                     <div class="form-group">
                         <label for="Message">Content</label>
-                        <input type="text" class="form-control" name="Message" id="Message" placeholder="Write your message">
+                        <input type="text" class="form-control" name="Message" id="Message" placeholder="Write your message" required />
                     </div>
                     <div class="form-group p-1">
                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -49,17 +49,18 @@ namespace ASP_Pokemon.Controllers
         [RequireHttps]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(CommentModel Comment)
+        public IActionResult Index(string Email, string Subject, string Message)
         {
             try
             {
                 List<CommentModel> comments = new List<CommentModel>();
                 JSONReadWrite readWrite = new JSONReadWrite();
                 comments = JsonConvert.DeserializeObject<List<CommentModel>>(readWrite.Read("comments.json", "data"));
-                if (ModelState.IsValid)
-                {
-                    comments.Add(Comment);
-                }
+                CommentModel new_coment = new CommentModel();
+                new_coment.Message = Message;
+                new_coment.Email = Email;
+                new_coment.Subject = Subject;
+                comments.Add(new_coment);
                 string jSONString = JsonConvert.SerializeObject(comments);
                 readWrite.Write("comments.json", "data", jSONString);
                 ViewBag.Message = "Comment added";
